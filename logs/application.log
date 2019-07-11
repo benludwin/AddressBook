@@ -1,0 +1,33 @@
+2018-10-21 18:36:24.074563 [Application]: Established database connection to 'temp.db'
+2018-10-21 18:36:26.755399 [Application]: Request recieved from page to display all address books.
+2018-10-21 18:36:26.755417 [Application]: Retrieving all address books in the database 'temp.db'
+2018-10-21 18:36:29.023500 [Application]: Request recieved from page to display contents of address book 'jens'.
+2018-10-21 18:36:29.023699 [Application]: Table 'jens' found in 'temp.db'.
+2018-10-21 18:36:29.023711 [Application]: Querying table 'jens' in 'temp.db'.
+2018-10-21 18:36:33.224182 [Application]: Fulfilling user request to create new book.
+2018-10-21 18:36:35.831834 [Application]: Table 'jens' found in 'temp.db'.
+2018-10-21 18:36:35.836503 [Application]: Fulfilling user request to create new book.
+2018-10-21 18:36:39.327172 [Application]: Table 'cat' not found in 'temp.db'.
+2018-10-21 18:36:39.329559 [Application]: Table 'cat' successfully created in 'temp.db'.
+2018-10-21 18:36:39.329595 [Application]: Request recieved from page to create new address book- 'cat'.
+2018-10-21 18:36:39.334822 [Application]: Request recieved from page to display contents of address book 'cat'.
+2018-10-21 18:36:39.335676 [Application]: Table 'cat' found in 'temp.db'.
+2018-10-21 18:36:39.335759 [Application]: Querying table 'cat' in 'temp.db'.
+2018-10-21 18:36:45.205677 [Application]: Request recieved from page to display all address books.
+2018-10-21 18:36:45.205693 [Application]: Retrieving all address books in the database 'temp.db'
+2018-10-21 18:36:49.562308 [Application]: Request recieved from page to delete address book 'cat'.
+2018-10-21 18:36:49.562336 [Application]: Removing book with name 'cat' from temporary connection and primary store.
+2018-10-21 18:36:49.579390 [Application]: Request recieved from page to display all address books.
+2018-10-21 18:36:49.579415 [Application]: Retrieving all address books in the database 'temp.db'
+2018-10-21 18:36:58.351060 [Application]: Request recieved from page to delete address book 'dog'.
+2018-10-21 18:36:58.351095 [Application]: Removing book with name 'dog' from temporary connection and primary store.
+2018-10-21 18:36:58.370444 [Application]: Request recieved from page to display all address books.
+2018-10-21 18:36:58.370467 [Application]: Retrieving all address books in the database 'temp.db'
+2018-10-21 18:37:01.508273 [Application]: Request recieved from page to delete address book 'shannon'.
+2018-10-21 18:37:01.508294 [Application]: Removing book with name 'shannon' from temporary connection and primary store.
+2018-10-21 18:37:01.523162 [Application]: Request recieved from page to display all address books.
+2018-10-21 18:37:01.523195 [Application]: Retrieving all address books in the database 'temp.db'
+2018-10-21 18:37:03.757321 [Application]: Request recieved from page to delete address book 'jens'.
+2018-10-21 18:37:03.757381 [Application]: Removing book with name 'jens' from temporary connection and primary store.
+2018-10-21 18:37:03.772062 [Application]: Request recieved from page to display all address books.
+2018-10-21 18:37:03.772088 [Application]: Retrieving all address books in the database 'temp.db'

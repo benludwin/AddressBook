@@ -1,0 +1,174 @@
+<!--*/
+view.html
+
+Main table view
+*/-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!--Favicons-->
+    <link rel="shortcut icon" href="{{ url_for('static', filename='../static/images/favicon.ico') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='../static/images/favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="96x96" href="{{ url_for('static', filename='../static/images/favicon-96x96.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='../static/images/favicon-16x16.png') }}">
+
+    <!-- Bootstrap, fontawesome, and our custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='../static/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='../static/css/font-awesome.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='../static/css/addressbook.css') }}">
+
+    <title>Address Book - {{ book }}</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+      <!-- Brand -->
+      <a class="navbar-brand" href="/">Address Book</a>
+      <!-- Links -->
+      <ul class="navbar-nav">
+        <!-- Dropdown -->
+        <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">File</a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="/create">New</a>
+            <a class="dropdown-item" href="/open">Open</a>
+            <a class="dropdown-item" href="/close">Close</a>
+          </div>
+        </li>
+      </ul>
+    </nav>
+
+<div id="bodyContainer">
+
+<div id="viewBookHeader">
+  <h1>View Address Book</h1>
+  <h3>{{ book }}</h3>
+</div>
+
+<div id="searchBox">
+  <form action="/search/{{ book }}" method="POST">
+    <div class="form-group">
+      <label><b style="color:#005899;">Search: </b></label>
+      <input type="searchEntry" class="form-control" id="searchEntry" name="searchEntry">
+    </div>
+    <div id="searchCheckBoxes">
+      <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="searchFirstName" name="searchFirstName">
+          <label class="form-check-label" for="searchFirstName">First Name</label>
+      </div>
+      <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="searchLastName" name="searchLastName">
+          <label class="form-check-label" for="searchLastName">Last Name</label>
+      </div>
+      <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="searchPhone" name="searchPhone">
+          <label class="form-check-label" for="searchPhone">Phone</label>
+      </div>
+      <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="searchEmail" name="searchEmail">
+          <label class="form-check-label" for="searchEmail">Email</label>
+      </div>
+      <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="searchAddress" name="searchAddress">
+          <label class="form-check-label" for="searchAddress">Address</label>
+      </div>
+      <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="searchState" name="searchState">
+          <label class="form-check-label" for="searchState">State</label>
+      </div>
+      <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="searchZip" name="searchZip">
+          <label class="form-check-label" for="searchZip">Zip</label>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary" id="searchBook"><i style="color: white;" class="fa fa-share-square"></i> Submit</button>
+    <button name="{{ book }}" class="btn btn-primary" id="refreshBook"><i style="color: white;" class="fa fa-refresh"></i> Refresh</button>
+  </form>
+</div>
+
+
+<div class="btn-group viewCommands" role="group">
+  <button class="btn btn-dark" id="newBookEntryBtn"><i style="color: white;" class="fa fa-plus-circle"></i> Add Entry</button>
+  <button class="btn btn-success" id="saveBtn"><i style="color: white;" class="fa fa-save"></i> Save</button>
+  <button class="btn btn-success" id="saveAsBtn"><i style="color: white;" class="fa fa-save"></i> Save As</button>
+</div>
+
+<div class="table-responsive">
+<table class="table table-hover">
+  <thead>
+    <tr class="thead-dark">
+      <th>First Name
+        <div class="btn-group-vertical">
+          <button id="sortFirstNameAsc" class="btn sortBtn" style="background-color:transparent;"><i style="color: white;" class="fa fa-caret-up"></i></button>
+          <button id="sortFirstNameDesc" class="btn sortBtn" style="background-color:transparent;"><i style="color: white;" class="fa fa-caret-down"></i></button>
+        </div>
+      </th>
+      <th>Last Name
+        <div class="btn-group-vertical">
+          <button id="sortLastNameAsc" class="btn sortBtn" style="background-color:transparent;"><i style="color: white;" class="fa fa-caret-up"></i></button>
+          <button id="sortLastNameDesc" class="btn sortBtn" style="background-color:transparent;"><i style="color: white;" class="fa fa-caret-down"></i></button>
+        </div>
+      </th>
+      <th>Phone Number
+        <div class="btn-group-vertical">
+          <button id="sortPhoneAsc" class="btn sortBtn" style="background-color:transparent;"><i style="color: white;" class="fa fa-caret-up"></i></button>
+          <button id="sortPhoneDesc" class="btn sortBtn" style="background-color:transparent;"><i style="color: white;" class="fa fa-caret-down"></i></button>
+        </div>
+      </th>
+      <th>Email
+        <div class="btn-group-vertical">
+          <button id="sortEmailAsc" class="btn sortBtn" style="background-color:transparent;"><i style="color: white;" class="fa fa-caret-up"></i></button>
+          <button id="sortEmailDesc" class="btn sortBtn" style="background-color:transparent;"><i style="color: white;" class="fa fa-caret-down"></i></button>
+        </div>
+      </th>
+      <th>Address
+        <div class="btn-group-vertical">
+          <button id="sortAddressAsc" class="btn sortBtn" style="background-color:transparent;"><i style="color: white;" class="fa fa-caret-up"></i></button>
+          <button id="sortAddressDesc" class="btn sortBtn" style="background-color:transparent;"><i style="color: white;" class="fa fa-caret-down"></i></button>
+        </div>
+      </th>
+      <th>State
+        <div class="btn-group-vertical">
+          <button id="sortStateAsc" class="btn sortBtn" style="background-color:transparent;"><i style="color: white;" class="fa fa-caret-up"></i></button>
+          <button id="sortStateDesc" class="btn sortBtn" style="background-color:transparent;"><i style="color: white;" class="fa fa-caret-down"></i></button>
+        </div>
+      </th>
+      <th>Zip
+        <div class="btn-group-vertical">
+          <button id="sortZipAsc" class="btn sortBtn" style="background-color:transparent;"><i style="color: white;" class="fa fa-caret-up"></i></button>
+          <button id="sortZipDesc" class="btn sortBtn" style="background-color:transparent;"><i style="color: white;" class="fa fa-caret-down"></i></button>
+        </div>
+      </th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  {% for index, contact in contacts.iterrows() %}
+
+  <tr>
+    <td class="firstNameRow">{{ contact['firstName'] }}</td>
+    <td class="lastNameRow">{{ contact['lastName'] }}</td>
+    <td class="phoneRow">{{ contact['phone'] }}</td>
+    <td class="emailRow">{{ contact['email'] }}</td>
+    <td class="addressRow">{{ contact['address'] }}</td>
+    <td class="stateRow">{{ contact['state'] }}</td>
+    <td class="zipRow">{{ contact['zip'] }}</td>
+    <td><button class="btn btn-dark newEntryWithData"><i style="color: white;" class="fa fa-edit"></i> Edit</button></td>
+    <td><button class="btn btn-danger deleteEntry"><i style="color: white;" class="fa fa-minus-circle"></i> Delete</button></td>
+  </tr>
+  {% endfor %}
+</table>
+</div>
+</div>
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS, then our custom js -->
+    <script src="{{ url_for('static', filename='../static/js/node_modules/jquery/dist/jquery.js') }}"></script>
+    <script src="{{ url_for('static', filename='../static/js/node_modules/popper.js/dist/popper.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='../static/js/bootstrap.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='../static/js/addressbook.js') }}"></script>
+  </body>
+</html>

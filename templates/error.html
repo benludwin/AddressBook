@@ -1,0 +1,63 @@
+<!--*/
+error.html
+
+Error page upon application failure (note: this should never be hit, but is always safe to have)
+*/-->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+        <!--Favicons-->
+        <link rel="shortcut icon" href="{{ url_for('static', filename='../static/images/favicon.ico') }}">
+        <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='../static/images/favicon-32x32.png') }}">
+        <link rel="icon" type="image/png" sizes="96x96" href="{{ url_for('static', filename='../static/images/favicon-96x96.png') }}">
+        <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='../static/images/favicon-16x16.png') }}">
+    
+        <!-- Bootstrap, fontawesome, and our custom CSS -->
+        <link rel="stylesheet" href="{{ url_for('static', filename='../static/css/bootstrap.min.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='../static/css/font-awesome.min.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='../static/css/addressbook.css') }}">
+    
+        <title>Error</title>
+    </head>
+  <body>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+      <!-- Brand -->
+      <a class="navbar-brand" href="/">Address Book</a>
+      <!-- Links -->
+      <ul class="navbar-nav">
+        <!-- Dropdown -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">File</a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="/create">New</a>
+            <a class="dropdown-item" href="/open">Open</a>
+            <a class="dropdown-item" href="/close">Close</a>
+          </div>
+        </li>
+      </ul>
+    </nav>
+  
+<div id="bodyContainer">
+
+
+<div id="errorBox">
+  <h1>Error</h1>
+  <p><b style="color:red;">Uh oh...</b><br/>
+    It appears that the application has hit an error.
+  </p>
+</div>
+
+</div>
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS, then our custom js -->
+    <script src="{{ url_for('static', filename='../static/js/node_modules/jquery/dist/jquery.js') }}"></script>
+    <script src="{{ url_for('static', filename='../static/js/node_modules/popper.js/dist/popper.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='../static/js/bootstrap.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='../static/js/addressbook.js') }}"></script>
+  </body>
+</html>

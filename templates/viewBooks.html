@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!--Favicon-->
+    <link rel="shortcut icon" href="{{ url_for('static', filename='../static/images/favicon.ico') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='../static/images/favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="96x96" href="{{ url_for('static', filename='../static/images/favicon-96x96.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='../static/images/favicon-16x16.png') }}">
+
+    <!-- Bootstrap, fontawesome, and our custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='../static/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='../static/css/font-awesome.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='../static/css/addressbook.css') }}">
+
+    <title>View Address Book</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+      <!-- Brand -->
+      <a class="navbar-brand" href="/">Address Book</a>
+      <!-- Links -->
+      <ul class="navbar-nav">
+        <!-- Dropdown -->
+        <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">File</a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="/create">New</a>
+            <a class="dropdown-item" href="/open">Open</a>
+            <a class="dropdown-item" href="/close">Close</a>
+          </div>
+        </li>
+      </ul>
+    </nav>
+
+<div id="bodyContainer">
+
+<div id="viewBooks">
+  <h1>View Address Books</h1>
+  <img src="../static/images/logo.png"/>
+  <p>View your address books below. You can either open a book and view/edit its contents, or delete the book entirely.</p>
+</div>
+
+
+{% if not books.empty %}
+<button class="btn btn-dark addBook"><i style="color: white;" class="fa fa-address-book-o"></i> Add new book</button>
+<table class="table table-hover" id="booksTable">
+  <thead class="thead-dark">
+    <tr>
+      <th class='col-8'>Name</th>
+      <th class='col-2'></th>
+      <th class='col-2'></th>
+    </tr>
+</thead>
+  {% for index, book in books.iterrows() %}
+  <tr>
+    <td class='col-8 viewBookName'>{{ book['name'] }}</td>
+    <td class='col-2'><button class='btn btn-dark viewBookBtn'><i style="color: white;" class="fa fa-check-square"></i> Select</button></td>
+    <td class='col-2'><button class='btn btn-danger deleteBookBtn'><i style="color: white;" class="fa fa-minus-cir"></i> Delete</button></td>
+  </tr>
+  {% endfor %}
+</table>
+{% endif %}
+
+{% if books.empty %}
+
+<div id="noBooksBox">
+  <p>It appears you don't have any address books, would you like to make one? </p>
+  <button class="btn btn-dark" id='createNewBook'><i style="color: white;" class="fa fa-address-book-o"></i> Create a new address book</button>
+</div>
+
+{% endif %}
+
+</div>
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS, then our custom js -->
+    <script src="{{ url_for('static', filename='../static/js/node_modules/jquery/dist/jquery.js') }}"></script>
+    <script src="{{ url_for('static', filename='../static/js/node_modules/popper.js/dist/popper.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='../static/js/bootstrap.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='../static/js/addressbook.js') }}"></script>
+  </body>
+</html>

@@ -1,0 +1,90 @@
+<!--*/
+update.html
+
+Update an existing entry in an address book
+*/-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!--Favicons-->
+    <link rel="shortcut icon" href="{{ url_for('static', filename='../static/images/favicon.ico') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='../static/images/favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="96x96" href="{{ url_for('static', filename='../static/images/favicon-96x96.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='../static/images/favicon-16x16.png') }}">
+
+    <!-- Bootstrap, fontawesome, and our custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='../static/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='../static/css/font-awesome.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='../static/css/addressbook.css') }}">
+
+    <title>Update {{ book }}</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+      <!-- Brand -->
+      <a class="navbar-brand" href="/">Address Book</a>
+      <!-- Links -->
+      <ul class="navbar-nav">
+        <!-- Dropdown -->
+        <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">File</a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="/create">New</a>
+            <a class="dropdown-item" href="/open">Open</a>
+            <a class="dropdown-item" href="/close">Close</a>
+          </div>
+        </li>
+      </ul>
+    </nav>
+
+<div id="bodyContainer">
+
+<h1>Address Book</h1>
+<h3>Update an entry for <b style="color:#005899;">{{ book }}</b></h3>
+
+<form id="updateContact" action="/update/{{ book }}/{{ firstName }},{{ lastName }},{{ phone }},{{ email }},{{ address }},{{ state }},{{ zip }}" method="POST">
+  <div class="form-group">
+    <label for="firstNameEntry">First Name <small>(Max 45 chars)</small></label>
+    <input type="firstNameEntry" class="form-control" id="firstNameEntry" value="{{ firstName }}" name="firstNameEntry" maxlength="45" required>
+  </div>
+  <div class="form-group">
+    <label for="lastNameEntry">Last Name <small>(Max 45 chars)</small></label>
+    <input type="lastNameEntry" class="form-control" id="lastNameEntry" value="{{ lastName }}" name="lastNameEntry" maxlength="45" required>
+  </div>
+  <div class="form-group">
+    <label for="phoneNumberEntry">Phone Number <small>(10 digits only, e.g. 1234567890)</small></label>
+    <input type="tel" class="form-control" id="phoneNumberEntry" value="{{ phone }}" name="phoneNumberEntry" minlength="10" maxlength="10" pattern="^[0-9]*$" placeholder="e.g. 1234567890" required>
+  </div>
+  <div class="form-group">
+    <label for="emailEntry">Email <small>(Max 45 chars)</small></label>
+    <input type="email" class="form-control" id="emailEntry" value="{{ email }}" name="emailEntry" maxlength="45" required>
+  </div>
+  <div class="form-group">
+    <label for="addressEntry">Address <small>(Max 45 chars)</small></label>
+    <input type="addressEntry" class="form-control" id="addressEntry" value="{{ address }}" name="addressEntry" maxlength="45" required>
+  </div>
+  <div class="form-group">
+    <label for="stateEntry">State <small>(Letters only, max 14 (full state name))</small></label>
+    <input type="stateEntry" class="form-control" id="stateEntry" value="{{ state }}" name="stateEntry" maxlength="13" pattern="[a-zA-Z\s]+" required>
+  </div>
+  <div class="form-group">
+    <label for="zipEntry">Zip <small>(5 digits only)</small></label>
+    <input type="zipEntry" class="form-control" id="zipEntry" value="{{ zip }}" name="zipEntry" minlength="5" maxlength="5" pattern="^[0-9]*$" placeholder="e.g. 97405" required>
+  </div>
+<button type="submit" class="btn btn-primary" id="updateEntryBtn">Submit</button>
+</form>
+
+</div>
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS, then our custom js -->
+    <script src="{{ url_for('static', filename='../static/js/node_modules/jquery/dist/jquery.js') }}"></script>
+    <script src="{{ url_for('static', filename='../static/js/node_modules/popper.js/dist/popper.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='../static/js/bootstrap.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='../static/js/addressbook.js') }}"></script>
+  </body>
+</html>

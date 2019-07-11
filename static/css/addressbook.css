@@ -1,0 +1,73 @@
+/*
+ Some small custome CSS rules (most of these modify the Bootstrap tooling.
+ */
+
+div#bodyContainer {
+    padding: 1%;
+}
+
+div#viewBooks, div#noBooksBox{
+    margin: auto;
+    text-align: center; 
+}
+
+div#viewBooks img {
+    width: 100px;
+    height: 86px;
+}
+
+div#viewBooks h1 {
+    color: #005899;
+}
+
+table#booksTable {
+    border: 1px solid black;
+}
+
+div#viewBookHeader{
+    margin: auto;
+    text-align: center; 
+}
+
+div#viewBookHeader h3{
+    color: #005899;
+}
+
+div.btn-group.viewCommands {
+    margin: auto;
+    padding-bottom: 2px;
+}
+
+button.btn.btn-dark.addBook {
+    margin-bottom: 2px;
+}
+
+div#searchCheckBoxes {
+    display: flex;
+}
+
+div.form-check {
+    flex-basis: 50%;
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+.btn-home {
+display: block;
+    width: 100%;
+}
+div#searchBox {
+    margin-bottom: 5px;
+    padding: 10px;
+    border: 2px solid #005899;
+}
+
+div#closeWarning, div#errorBox {
+    margin: auto;
+    text-align: center;
+}

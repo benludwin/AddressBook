@@ -1,0 +1,13 @@
+conda==4.3.16
+Flask==1.0.2
+ipython==5.3.0
+gunicorn==19.3.0
+ipython-genutils==0.2.0
+ipywidgets==6.0.0
+matplotlib==2.0.0
+notebook==4.4.1
+numpy==1.15.3
+pandas==0.23.4
+pandocfilters==1.4.1
+path.py==10.1
+datetime

@@ -6,7 +6,7 @@ ipython-genutils==0.2.0
 ipywidgets==6.0.0
 matplotlib==2.0.0
 notebook==4.4.1
-numpy==1.15.3
+numpy==1.22.0
 pandas==0.23.4
 pandocfilters==1.4.1
 path.py==10.1
